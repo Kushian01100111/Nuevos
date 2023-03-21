@@ -23,7 +23,7 @@ function printerError(s) {
     return `${count}/${s.length}`
   }else{
     for(let i = 0; i < errors.length;i++){
-            count += errors[i].length
+            count += errors[i].length 
     }
     return `${count}/${s.length}`
   }
