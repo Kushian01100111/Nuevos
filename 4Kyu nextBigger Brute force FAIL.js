@@ -14,25 +14,32 @@
 function nextBigger(n){
     let numbers = n.toString().split("").map(Number);
 
-    let rearrangePoint = -1,
-        changeNum = 0;
+    let rearrangePoint = -1;
 
     for(let i = numbers.length -2; i >= 0; i--){
         if(numbers[i] < numbers[i+1]){
             rearrangePoint= i;
-            changeNum = i + 1;
             break 
         }
     }
 
     if(rearrangePoint === -1) return rearrangePoint;
 
+    // Find the smallest digit to the right of the pivot that is greater than thenumbers
+  let changeNum = rearrangePoint + 1;
+  for (let i = changeNum + 1; i < numbers.length; i++) {
+    if (numbers[i] > numbers[pivotIdx] && numbers[i] < numbers[nextIdx]) {
+      changeNum = i;
+    }
+  }
 
     let temp = numbers[rearrangePoint];
     numbers[rearrangePoint] = numbers[changeNum];
     numbers[changeNum] =  temp;
 
-    return parseInt(numbers.map(n => n.toString()).join(""))
+    let sortNums= numbers.slice(rearrangePoint + 1).sort((a,b)=> a - b);
+
+    return parseInt(numbers.slice(0, rearrangePoint + 1).concat(sortNums).join(""))
 }
 
 
