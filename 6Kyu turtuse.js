@@ -19,11 +19,12 @@ function race(v1, v2, g) {
     if(v1 >= v2) return null;
     else{
         let time = g / (v2-v1),
-            hours = parseInt(time),
-            minutes = parseInt((time - hours)* 60),
-            seconds = parseInt(((time - hours)*60 -minutes)*60);
+            hours = Math.floor(time),
 
-        return [hours,minutes,seconds];    
+            minutes = (time % 1) * 60,
+            seconds = (minutes % 1) * 60;
+
+        return [hours,parseInt(minutes),parseInt(seconds)];    
     }
 }
 
