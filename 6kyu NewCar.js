@@ -59,6 +59,7 @@ function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMon
     result = [i,valueEndMonth]
   }
   return  [result[0], Math.round(result[1]-currentPriceNew)];
+  
 }
 
 // console.log(nbMonths(2000, 8000, 1000, 1.5), [6, 766]);
