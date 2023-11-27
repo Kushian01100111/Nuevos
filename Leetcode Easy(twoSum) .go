@@ -31,6 +31,8 @@
 
 package kata
 
+
+
 func twoSum(nums []int, target int) []int {
 	hashMap := make(map[int]int)
 	for currentIn, value := range nums {
